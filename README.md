@@ -1,4 +1,4 @@
-## Examination DIsplay
+## Examination Display
 
 This software displays the required information for UK Examinations as per the regulations set out by JCQ
 

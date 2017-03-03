@@ -7,6 +7,8 @@ import javafx.beans.binding.Bindings
 import javafx.beans.property._
 import javafx.event.ActionEvent
 import javafx.fxml.FXML
+import javafx.scene.control.TextField
+import javafx.scene.input.KeyEvent
 
 import com.ajsworton.Config.Settings
 
@@ -24,11 +26,10 @@ class ControlPanel extends Initializable{
   def setCentreNumber(number: String): Unit = centreNumber = number
 
   override def initialize(location: URL, resources: ResourceBundle): Unit = {
-
   }
 
   @FXML
-  def handleTextChange(action: ActionEvent): Unit = {
-
+  def handleTextChange(action: KeyEvent): Unit = action.getSource match{
+    case src: TextField => setCentreNumber(src.getText)
   }
 }

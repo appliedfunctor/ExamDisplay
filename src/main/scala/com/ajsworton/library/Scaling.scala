@@ -1,6 +1,9 @@
 package com.ajsworton.library
 
+import javafx.scene
+
 import scalafx.stage.Screen
+import javafx.{scene => jfxs}
 
 /**
   * Created by aworton on 03/03/17.
@@ -20,6 +23,13 @@ object Scaling {
   private def scalingFromDpi(dpi: Double): Option[Double] = dpi match {
     case dpi: Double if dpi <= 0 => None
     case _ => Some(dpi / baseDpi)
+  }
+
+  def addScalingStyle(viewContent: jfxs.Parent): jfxs.Parent = {
+    val scaling: Double = Scaling.scalingValue(Screen.primary)
+    viewContent.setId("root")
+    viewContent.setStyle("-fx-font-size:" + (scaling * 14) + ";")
+    viewContent
   }
 
 }

@@ -8,8 +8,10 @@ import javafx.{fxml => jfxf}
 import javafx.{scene => jfxs}
 
 import com.ajsworton.Config.Settings
-
-import scalafx.scene.layout.GridPane
+import com.ajsworton.Start.stage
+import scalafx.Includes._
+import scalafx.application.JFXApp.PrimaryStage
+import javafx.scene.layout.{Pane}
 import scalafx.stage.Screen
 
 /**
@@ -17,18 +19,28 @@ import scalafx.stage.Screen
   */
 object Start extends JFXApp{
 
-  val scaling = Scaling.scalingValue(Screen.primary)
+  val root = initRoot
+  stage = initStage("Exam Display", initScene(root))
 
-  stage = new JFXApp.PrimaryStage
-  stage.setAlwaysOnTop(true)
-  stage.setTitle("Exam Display")
-  var root: GridPane = ContainerFactory.root
-  val viewContent: jfxs.Parent  = jfxf.FXMLLoader.load(getClass.getResource("/view/ControlPanel.fxml"))
-  root.getChildren().add(viewContent)
+  private def initStage(suppliedTitle: String, suppliedScene: Scene): PrimaryStage = {
+    val stage = new JFXApp.PrimaryStage{
+      title = suppliedTitle
+      alwaysOnTop = true
+      scene = suppliedScene
+      onCloseRequest = e => Platform.exit()
+    }
+    stage
+  }
 
-  var scene = new Scene(root, 400 * scaling, 500 * scaling)
-  scene.getStylesheets().add(getClass.getResource(Settings.styleSheet).toExternalForm)
+  private def initRoot: jfxs.Parent = {
+    val viewContent: jfxs.Parent  = jfxf.FXMLLoader.load(getClass.getResource("/view/ControlPanel.fxml"))
+    Scaling.addScalingStyle(viewContent)
+  }
 
-  stage.setScene(scene)
-  stage.setOnCloseRequest(e => Platform.exit())
+  private def initScene(root: jfxs.Parent): Scene = {
+    val scaling = Scaling.scalingValue(Screen.primary)
+    val scene = new Scene(root, 800 * scaling, 500 * scaling)
+    scene.getStylesheets().add(getClass.getResource(Settings.styleSheet).toExternalForm)
+    scene
+  }
 }

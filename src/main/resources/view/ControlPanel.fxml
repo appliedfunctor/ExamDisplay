@@ -1,4 +1,7 @@
 <?import javafx.scene.control.Label?>
-<Label>
-    Welcome to Exam Display
-</Label>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.VBox?>
+<VBox>
+    <Label styleClass="heading">Welcome to Exam Display</Label>
+</VBox>

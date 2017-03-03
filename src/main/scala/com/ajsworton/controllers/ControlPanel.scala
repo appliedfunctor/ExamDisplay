@@ -3,9 +3,7 @@ package com.ajsworton.controllers
 import java.net.URL
 import java.util.ResourceBundle
 import javafx.fxml.Initializable
-import javafx.beans.binding.Bindings
 import javafx.beans.property._
-import javafx.event.ActionEvent
 import javafx.fxml.FXML
 import javafx.scene.control.TextField
 import javafx.scene.input.KeyEvent

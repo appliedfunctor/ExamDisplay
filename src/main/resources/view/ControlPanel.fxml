@@ -5,8 +5,8 @@
 <VBox spacing="20" xmlns:fx="http://javafx.com/fxml" fx:controller="com.ajsworton.controllers.ControlPanel">
     <Label alignment="CENTER" styleClass="heading">Exam Display Configuration</Label>
     <GridPane alignment="CENTER">
-        <Label value="${controller.centreNumber}" alignment="CENTER_RIGHT" textAlignment="RIGHT">Centre Number: </Label>
-        <TextField onKeyReleased="#handleTextChange" GridPane.rowIndex="0" GridPane.columnIndex="1" id="inputCentreNumber" />
+        <Label alignment="CENTER_RIGHT" textAlignment="RIGHT">Centre Number: </Label>
+        <TextField onKeyReleased="#handleTextChange" GridPane.rowIndex="0" GridPane.columnIndex="1" />
 
         <Label alignment="CENTER_RIGHT" textAlignment="RIGHT" GridPane.rowIndex="1"  >Other: </Label>
         <TextField GridPane.rowIndex="1"  GridPane.columnIndex="1" id="inputOther" />

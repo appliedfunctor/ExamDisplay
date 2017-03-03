@@ -1,0 +1,12 @@
+@font-face {
+    src: url("/fonts/Roboto/Roboto-Black.ttf");
+}
+
+.root{
+    -fx-font-family: "Roboto Black", sans-serif;
+    -fx-padding: 1em;
+}
+
+Label{
+    -fx-font-size: 1em;
+}

@@ -1,10 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.VBox?>
-<VBox spacing="20" xmlns:fx="http://javafx.com/fxml" fx:controller="com.ajsworton.controllers.ControlPanel">
-    <Label alignment="CENTER" styleClass="heading">Exam Display Configuration</Label>
-    <GridPane alignment="CENTER">
+
+<fx:root type="javafx.scene.layout.VBox" maxWidth="Infinity" alignment="CENTER" spacing="20" xmlns:fx="http://javafx.com/fxml" fx:controller="com.ajsworton.controllers.ControlPanel">
+    <Label GridPane.columnIndex="0" GridPane.rowIndex="0" alignment="CENTER" styleClass="heading">Exam Display Configuration</Label>
+    <GridPane  GridPane.columnIndex="0" GridPane.rowIndex="1" alignment="CENTER">
         <Label alignment="CENTER_RIGHT" textAlignment="RIGHT">Centre Number: </Label>
         <TextField onKeyReleased="#handleTextChange" GridPane.rowIndex="0" GridPane.columnIndex="1" />
 
@@ -19,4 +21,4 @@
                text="${controller.centreNumber}" />
 
     </GridPane>
-</VBox>
+</fx:root>

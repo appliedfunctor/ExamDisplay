@@ -29,12 +29,21 @@ object Start extends JFXApp{
       scene = suppliedScene
       onCloseRequest = e => Platform.exit()
     }
+    stage.sizeToScene()
     stage
   }
 
   private def initRoot: jfxs.Parent = {
-    val viewContent: jfxs.Parent  = jfxf.FXMLLoader.load(getClass.getResource("/view/ControlPanel.fxml"))
-    Scaling.addScalingStyle(viewContent)
+    val viewTemplate = new jfxf.FXMLLoader(getClass.getResource("/view/Main.fxml"))
+    val loadedRoot: jfxs.Parent = viewTemplate.load()
+
+    val viewContent = new jfxf.FXMLLoader(getClass.getResource("/view/SettingsPanel.fxml"))
+
+    val url = viewTemplate.getNamespace.getOrDefault("contentRoot", "Failed!")
+    viewContent.setRoot(url)
+    viewContent.load()
+
+    Scaling.addScalingStyle(loadedRoot)
   }
 
   private def initScene(root: jfxs.Parent): Scene = {

@@ -27,7 +27,6 @@ object Scaling {
 
   def addScalingStyle(viewContent: jfxs.Parent): jfxs.Parent = {
     val scaling: Double = Scaling.scalingValue(Screen.primary)
-    viewContent.setId("root")
     viewContent.setStyle("-fx-font-size:" + (scaling * 14) + ";")
     viewContent
   }

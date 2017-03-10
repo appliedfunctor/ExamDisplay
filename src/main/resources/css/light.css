@@ -10,9 +10,22 @@
 Label{
     -fx-font-size: 1em;
     -fx-padding: 1em;
-    -fx-max-width: 999999 ;
 }
 
 .heading{
     -fx-font-size: 2em;
+}
+
+.navigationPane{
+    -fx-background-color: #2b2b2b;
+    -fx-padding: 0.5em;
+    -fx-fill-height: true;
+    -fx-spacing: 0.5em;
+}
+
+.base{
+}
+
+.xmain{
+    -fx-fill-width: true;
 }

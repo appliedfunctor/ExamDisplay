@@ -13,9 +13,9 @@ import com.ajsworton.Config.Settings
 /**
   * Created by aworton on 03/03/17.
   */
-class ControlPanel extends Initializable{
+class SettingsPanel extends Initializable{
 
-  val centreNumber: ObjectProperty[String] = new SimpleObjectProperty(Settings.centreNumber)
+  val centreNumber: ObjectProperty[String] = new SimpleObjectProperty()
 
   def getCentreNumber: String = centreNumber.get
 
@@ -24,6 +24,7 @@ class ControlPanel extends Initializable{
   def setCentreNumber(number: String): Unit = centreNumber.set(number)
 
   override def initialize(location: URL, resources: ResourceBundle): Unit = {
+    setCentreNumber(Settings.centreNumber)
   }
 
   @FXML

@@ -109,4 +109,3 @@ project/plugins/project/
 # End of https://www.gitignore.io/api/intellij+iml,sbt,scala,java
 
 ## Fonts:
-*.ttf

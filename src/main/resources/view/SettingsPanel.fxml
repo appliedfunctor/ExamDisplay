@@ -4,11 +4,11 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.GridPane?>
 
-<fx:root type="javafx.scene.layout.VBox" maxWidth="Infinity" alignment="CENTER" spacing="20" xmlns:fx="http://javafx.com/fxml" fx:controller="com.ajsworton.controllers.ControlPanel">
+<fx:root type="javafx.scene.layout.VBox" maxWidth="Infinity" alignment="CENTER" spacing="20" xmlns:fx="http://javafx.com/fxml" fx:controller="com.ajsworton.controllers.SettingsPanel">
     <Label GridPane.columnIndex="0" GridPane.rowIndex="0" alignment="CENTER" styleClass="heading">Exam Display Configuration</Label>
     <GridPane  GridPane.columnIndex="0" GridPane.rowIndex="1" alignment="CENTER">
         <Label alignment="CENTER_RIGHT" textAlignment="RIGHT">Centre Number: </Label>
-        <TextField onKeyReleased="#handleTextChange" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+        <TextField fx:id="centreInput" onKeyReleased="#handleTextChange" GridPane.rowIndex="0" GridPane.columnIndex="1" />
 
         <Label alignment="CENTER_RIGHT" textAlignment="RIGHT" GridPane.rowIndex="1"  >Other: </Label>
         <TextField GridPane.rowIndex="1"  GridPane.columnIndex="1" id="inputOther" />

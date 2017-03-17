@@ -15,6 +15,9 @@ import com.ajsworton.Config.Settings
   */
 class SettingsPanel extends Initializable{
 
+  @FXML
+  var centreInput: TextField = _
+
   val centreNumber: ObjectProperty[String] = new SimpleObjectProperty()
 
   def getCentreNumber: String = centreNumber.get
@@ -24,7 +27,7 @@ class SettingsPanel extends Initializable{
   def setCentreNumber(number: String): Unit = centreNumber.set(number)
 
   override def initialize(location: URL, resources: ResourceBundle): Unit = {
-    setCentreNumber(Settings.centreNumber)
+    centreInput.setText(Settings.centreNumber)
   }
 
   @FXML

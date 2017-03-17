@@ -2,16 +2,21 @@
 
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.layout.HBox?>
-
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.control.Label?>
-<GridPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ajsworton.controllers.Main">
+<GridPane xmlns:fx="http://javafx.com/fxml/1"
+          xmlns="http://javafx.com/javafx/8"
+          fx:controller="com.ajsworton.controllers.Main">
     <VBox GridPane.columnIndex="0" GridPane.vgrow="ALWAYS" styleClass="navigationPane">
         <Button fx:id="settingsBtn" onMouseClicked="#handleClickEvent" >Settings</Button>
         <Button fx:id="screensBtn"  onMouseClicked="#handleClickEvent">Screens</Button>
     </VBox>
-    <VBox GridPane.columnIndex="1" GridPane.vgrow="ALWAYS" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" maxWidth="Infinity" styleClass="base" fx:id="contentRoot" />
+    <GridPane fx:id="contentRoot"
+              alignment="CENTER"
+              GridPane.columnIndex="1"
+              GridPane.vgrow="ALWAYS"
+              GridPane.hgrow="ALWAYS"
+              GridPane.valignment="CENTER"
+              maxHeight="Infinity"
+              maxWidth="Infinity"
+              styleClass="base" />
 </GridPane>

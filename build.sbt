@@ -4,6 +4,8 @@ version := "1.0"
 
 scalaVersion := "2.12.1"
 
+scalacOptions += "-target:jvm-1.8"
+
 libraryDependencies += "org.scalafx" %% "scalafx" % "8.0.102-R11"
 
 libraryDependencies += "org.scalactic" %% "scalactic" % "3.0.1"

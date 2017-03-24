@@ -1,17 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?import javafx.scene.layout.FlowPane?>
-<?import javafx.scene.control.Label?>
 <FlowPane  xmlns:fx="http://javafx.com/fxml/1"
            xmlns="http://javafx.com/javafx/8"
+           prefWidth="${screenFlow.parent.width}"
+           prefHeight="${screenFlow.parent.height}"
            fx:controller="com.ajsworton.controllers.ScreenPanel"
-           fx:id="screenFlow"
-           style="-fx-background-color: cadetblue">
-    <Label>screenPanel</Label>
-    <Label>screenPanel</Label>
-    <Label>screenPanel</Label>
-    <Label>screenPanel</Label>
-    <Label>screenPanel</Label>
-    <Label>screenPanel</Label>
-    <Label>screenPanel</Label>
-    <Label>screenPanel</Label>
+           alignment="CENTER"
+           fx:id="screenFlow">
 </FlowPane>

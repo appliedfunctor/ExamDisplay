@@ -2,30 +2,54 @@
     src: url("/fonts/Roboto/Roboto-Black.ttf");
 }
 
-.root{
+.root {
     -fx-font-family: "Roboto Black", sans-serif;
     -fx-fill-width: true;
 }
 
-Label{
+Label {
     -fx-font-size: 1em;
     -fx-padding: 1em;
 }
 
-.heading{
+.heading {
     -fx-font-size: 2em;
 }
 
-.navigationPane{
+.navigationPane {
     -fx-background-color: #2b2b2b;
     -fx-padding: 0.5em;
     -fx-fill-height: true;
     -fx-spacing: 0.5em;
 }
 
-.base{
+.base {
 }
 
-.xmain{
+.xmain {
     -fx-fill-width: true;
+}
+
+.screen {
+    -fx-border-color: black;
+    -fx-border-radius: 1em;
+    -fx-padding: 0.4em;
+}
+
+.screenComponent {
+    -fx-pref-height: 10em;
+    -fx-pref-width: 10em;
+    -fx-background-color: #2b2b2b;
+    -fx-background-radius: 1em;
+    -fx-text-alignment: center;
+    -fx-alignment: center;
+}
+
+.screenComponentHovered{
+    -fx-background-color: #2A382A;
+}
+
+.lightColour {
+    -fx-text-fill: rgb(187, 187, 187);
+    -fx-text-alignment: center;
 }

@@ -12,7 +12,7 @@ import javafx.scene.layout.Pane
 /**
   * Created by aworton on 10/03/17.
   */
-class Main extends Initializable {
+class MainPanel extends Initializable {
 
   @FXML
   var contentRoot: Pane = _

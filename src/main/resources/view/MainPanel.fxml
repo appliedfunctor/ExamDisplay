@@ -5,7 +5,7 @@
 <?import javafx.scene.control.Button?>
 <GridPane xmlns:fx="http://javafx.com/fxml/1"
           xmlns="http://javafx.com/javafx/8"
-          fx:controller="com.ajsworton.controllers.Main">
+          fx:controller="com.ajsworton.controllers.MainPanel">
     <VBox GridPane.columnIndex="0" GridPane.vgrow="ALWAYS" styleClass="navigationPane">
         <Button fx:id="settingsBtn" onMouseClicked="#handleClickEvent" >Settings</Button>
         <Button fx:id="screensBtn"  onMouseClicked="#handleClickEvent">Screens</Button>

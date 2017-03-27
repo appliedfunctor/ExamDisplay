@@ -6,7 +6,7 @@ import javafx.stage.Stage
 import com.ajsworton.library.display.JavaFxDisplayBuilder
 
 /**
-  * Created by aworton on 24/02/17.
+  * @author Alexander Worton.
   */
 class Start extends Application{
 
@@ -14,13 +14,18 @@ class Start extends Application{
 
     val newStage = new JavaFxDisplayBuilder()
       .buildRoot("MainPanel")
-      .buildScene(800, 500)
-      .buildStage(title = "Exam Display")
+      .buildScene()
+      .buildStage(title = "Exam Display", masterWindow = true)
       .getDisplay
 
     if (newStage.isDefined) {
         newStage.get.show()
     }
   }
+}
 
+object Start {
+  def main(args: Array[String]) {
+    Application.launch(classOf[Start], args: _*)
+  }
 }

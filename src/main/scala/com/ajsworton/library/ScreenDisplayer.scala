@@ -16,7 +16,7 @@ object ScreenDisplayer {
   //to hold reference to open screens
   var activeScreens: List[String] = Nil
 
-  def toggleScreen(screenHashCode: String) = {
+  def toggleScreen(screenHashCode: String): Unit = {
 
     //if activeScreensContains
     //close window
@@ -24,10 +24,11 @@ object ScreenDisplayer {
     //else
     //open new display
     //var bounds: Rectangle2D = screen.getVisualBounds();
+    showScreen(screenHashCode)
 
   }
 
-  def showScreen(screenHashCode: String) = {
+  def showScreen(screenHashCode: String): Unit = {
     val screen: Optional[Screen] = getScreen(screenHashCode)
     if(screen.isPresent) {
       openNewWindow
@@ -49,18 +50,16 @@ object ScreenDisplayer {
     Scaling.addScalingStyle(loadedRoot)
   }
 
-  def openNewWindow = {
-
-
-
+  def openNewWindow: Unit = {
     val newStage = new JavaFxDisplayBuilder()
-      .buildRoot(fxmlView = "Display")
-      .buildScene(width = 800, height = 600)
-      .buildStage(title = "My New Stage Title", initStyle = StageStyle.UNDECORATED)
+      .buildRoot(fxmlView = "DisplayPanel")
+      .buildScene()
+      .buildStage(title = "Display", initStyle = StageStyle.UNDECORATED)
       .getDisplay
 
     if (newStage.isDefined) {
       newStage.get.show()
+      newStage.get.setMaximized(true)
     }
   }
 }

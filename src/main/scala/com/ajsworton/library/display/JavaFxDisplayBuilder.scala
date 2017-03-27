@@ -6,7 +6,7 @@ import javafx.scene.input.{KeyCode, KeyCodeCombination}
 import javafx.scene.{Parent, Scene}
 import javafx.stage.{Screen, Stage, StageStyle}
 
-import com.ajsworton.Config.Settings
+import com.ajsworton.config.Settings
 import com.ajsworton.library.Scaling
 
 /**
@@ -19,14 +19,13 @@ class JavaFxDisplayBuilder extends DisplayBuilder{
   private var builtStage: Option[Stage] = None
 
   override def buildRoot(fxmlView: String = "MainPanel"): DisplayBuilder = {
-    println(s"/view/$fxmlView.fxml")
     val viewTemplate = new FXMLLoader(getClass.getResource(s"/view/$fxmlView.fxml"))
     val loadedRoot: Parent = viewTemplate.load()
     builtRoot = Some(Scaling.addScalingStyle(loadedRoot))
     this
   }
 
-  override def buildScene(width: Int = 800, height: Int = 500): DisplayBuilder = {
+  override def buildScene(width: Int = defaultWidth, height: Int = defaultHeight): DisplayBuilder = {
     if (builtRoot.isDefined) {
       val scaling = Scaling.scalingValue(Screen.getPrimary)
       val tempScene = new Scene(builtRoot.get, width * scaling, height * scaling)
@@ -36,39 +35,28 @@ class JavaFxDisplayBuilder extends DisplayBuilder{
     this
   }
 
-//  override def buildStage(title: String = "",
-//                          initStyle: StageStyle = StageStyle.DECORATED,
-//                          fullScreen: Boolean = false,
-//                          alwaysOnTop: Boolean = false,
-//                          fullScreenExitCombo: KeyCodeCombination
-//                          = new KeyCodeCombination(KeyCode.E, CONTROL_DOWN)
-//                         ): DisplayBuilder = {
-//    if (builtScene.isDefined) {
-//      val stage = new Stage()
-//      stage.setTitle(title)
-//      stage.setAlwaysOnTop(true)
-//      stage.setScene(builtScene.get)
-//      stage.setOnCloseRequest(e => Platform.exit())
-//      stage.sizeToScene()
-//      builtStage = Some(stage)
-//    }
-//    this
-//  }
 
-
-  override def buildStage(title: String,
-                          initStyle: StageStyle,
-                          fullScreen: Boolean,
-                          alwaysOnTop: Boolean,
-                          xPos: Int,
-                          yPos: Int,
-                          fullScreenExitCombo: KeyCodeCombination): DisplayBuilder = {
+  override def buildStage(title: String = "",
+                          initStyle: StageStyle = StageStyle.DECORATED,
+                          fullScreen: Boolean = false,
+                          alwaysOnTop: Boolean = false,
+                          xPos: Int = 0,
+                          yPos: Int = 0,
+                          fullScreenExitCombo: KeyCodeCombination
+                          = new KeyCodeCombination(KeyCode.E, CONTROL_DOWN),
+                          masterWindow: Boolean = false
+                         ): DisplayBuilder = {
         if (builtScene.isDefined) {
           val stage = new Stage()
           stage.setTitle(title)
           stage.setAlwaysOnTop(true)
           stage.setScene(builtScene.get)
-          stage.setOnCloseRequest(e => Platform.exit())
+          if (masterWindow) {
+            stage.setOnCloseRequest(e => Platform.exit())
+          } else {
+            stage.initStyle(StageStyle.UNDECORATED)
+            stage.setFullScreen(true)
+          }
           stage.sizeToScene()
           builtStage = Some(stage)
         }

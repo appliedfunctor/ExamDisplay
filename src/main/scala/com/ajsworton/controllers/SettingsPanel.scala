@@ -8,7 +8,7 @@ import javafx.fxml.FXML
 import javafx.scene.control.TextField
 import javafx.scene.input.KeyEvent
 
-import com.ajsworton.Config.Settings
+import com.ajsworton.config.Settings
 
 /**
   * Created by aworton on 03/03/17.

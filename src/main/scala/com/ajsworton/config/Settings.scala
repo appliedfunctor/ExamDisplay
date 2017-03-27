@@ -1,6 +1,4 @@
-package com.ajsworton.Config
-
-import scalafx.beans.property.StringProperty
+package com.ajsworton.config
 
 /**
   * Created by aworton on 03/03/17.

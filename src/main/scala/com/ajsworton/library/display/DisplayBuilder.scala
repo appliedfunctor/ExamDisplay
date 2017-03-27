@@ -9,9 +9,12 @@ import javafx.stage.{Stage, StageStyle}
   */
 trait DisplayBuilder {
 
+  val defaultWidth = 800
+  val defaultHeight = 500
+
   def buildRoot(fxmlView: String): DisplayBuilder
 
-  def buildScene(width: Int, height: Int): DisplayBuilder
+  def buildScene(width: Int = defaultWidth, height: Int = defaultHeight): DisplayBuilder
 
   def buildStage(title: String = "",
                  initStyle: StageStyle = StageStyle.DECORATED,
@@ -20,7 +23,8 @@ trait DisplayBuilder {
                  xPos: Int = 0,
                  yPos: Int = 0,
                  fullScreenExitCombo: KeyCodeCombination
-                 = new KeyCodeCombination(KeyCode.E, CONTROL_DOWN)
+                 = new KeyCodeCombination(KeyCode.E, CONTROL_DOWN),
+                 masterWindow: Boolean = false
                 ): DisplayBuilder
 
   def getDisplay: Option[Stage]

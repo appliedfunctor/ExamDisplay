@@ -1,11 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?import javafx.scene.layout.GridPane?>
 
 <?import javafx.scene.control.Label?>
-<GridPane xmlns:fx="http://javafx.com/fxml/1"
-          xmlns="http://javafx.com/javafx/8"
-          fx:controller="com.ajsworton.controllers.DisplayPanel">
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 
-    <Label>Hello World!</Label>
+<GridPane xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ajsworton.controllers.DisplayPanel">
 
+    <VBox fx:id="screenVbox" prefWidth="${screenVbox.parent.width}" prefHeight="${screenVbox.parent.height}">
+        <GridPane alignment="CENTER" gridLinesVisible="false" fx:id="headGrid" prefWidth="${headGrid.parent.width}" style="-fx-fill-width: true">
+            <Label GridPane.halignment="LEFT" styleClass="displayFont" text="${controller.centreNumber}" GridPane.columnIndex="0" />
+            <Label GridPane.halignment="CENTER" styleClass="displayFont" text="${controller.time}" GridPane.columnIndex="1" />
+            <Label GridPane.halignment="RIGHT" styleClass="displayFont" text="${controller.date}" GridPane.columnIndex="2" />
+         <columnConstraints>
+            <ColumnConstraints percentWidth="30" />
+            <ColumnConstraints percentWidth="40"  />
+            <ColumnConstraints percentWidth="30"  />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints />
+         </rowConstraints>
+        </GridPane>
+    </VBox>
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
 </GridPane>

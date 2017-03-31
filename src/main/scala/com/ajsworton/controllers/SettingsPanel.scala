@@ -18,16 +18,16 @@ class SettingsPanel extends Initializable{
   @FXML
   var centreInput: TextField = _
 
-  val centreNumber: ObjectProperty[String] = new SimpleObjectProperty()
+  val centreNumber: ObjectProperty[String] = Settings.centreNumber
 
-  def getCentreNumber: String = centreNumber.get
+  def getCentreNumber: String = Settings.getCentreNumber
 
-  def centreNumberProperty: ObjectProperty[String] = centreNumber
+  def centreNumberProperty: ObjectProperty[String] = Settings.centreNumber
 
-  def setCentreNumber(number: String): Unit = centreNumber.set(number)
+  def setCentreNumber(number: String): Unit = Settings.setCentreNumber(number)
 
   override def initialize(location: URL, resources: ResourceBundle): Unit = {
-    centreInput.setText(Settings.centreNumber)
+    centreInput.setText(getCentreNumber)
   }
 
   @FXML

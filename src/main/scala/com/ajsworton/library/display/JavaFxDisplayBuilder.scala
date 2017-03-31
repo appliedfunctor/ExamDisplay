@@ -7,7 +7,7 @@ import javafx.scene.{Parent, Scene}
 import javafx.stage.{Screen, Stage, StageStyle}
 
 import com.ajsworton.config.Settings
-import com.ajsworton.library.Scaling
+import com.ajsworton.library.{Clock, Scaling}
 
 /**
   * @author Alexander Worton
@@ -52,7 +52,10 @@ class JavaFxDisplayBuilder extends DisplayBuilder{
           stage.setAlwaysOnTop(true)
           stage.setScene(builtScene.get)
           if (masterWindow) {
-            stage.setOnCloseRequest(e => Platform.exit())
+            stage.setOnCloseRequest(e => {
+              Clock.shutDown
+              Platform.exit()
+            })
           } else {
             stage.initStyle(StageStyle.UNDECORATED)
             stage.setFullScreen(true)

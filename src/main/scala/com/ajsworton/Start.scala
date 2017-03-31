@@ -1,6 +1,7 @@
 package com.ajsworton
 
 import javafx.application.Application
+import javafx.scene.Cursor
 import javafx.stage.Stage
 
 import com.ajsworton.config.Settings
@@ -18,8 +19,6 @@ class Start extends Application{
       .buildScene()
       .buildStage(title = "Exam Display", masterWindow = true)
       .getDisplay
-
-
 
     if (newStage.isDefined) {
         Settings.primaryStage = newStage

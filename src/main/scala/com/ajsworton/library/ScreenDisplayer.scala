@@ -2,6 +2,8 @@ package com.ajsworton.library
 
 import javafx.fxml.FXMLLoader
 import java.util.Optional
+import javafx.application.Platform
+import javafx.concurrent.Task
 import javafx.scene.{Cursor, Parent}
 import javafx.stage.{Screen, StageStyle}
 
@@ -51,17 +53,28 @@ object ScreenDisplayer {
   }
 
   def openNewWindow: Unit = {
-    Settings.primaryStage.foreach(_.getScene.setCursor(Cursor.WAIT))
+    Settings.primaryStage.get.getScene.setCursor(Cursor.WAIT)
+
     val newStage = new JavaFxDisplayBuilder()
       .buildRoot(fxmlView = "DisplayPanel")
       .buildScene()
       .buildStage(title = "Display", initStyle = StageStyle.UNDECORATED)
       .getDisplay
 
-    if (newStage.isDefined) {
-      newStage.get.show()
-      newStage.get.setMaximized(true)
+
+    val openWindow: Task[Unit] = () => {
+      if (newStage.isDefined) {
+        newStage.get.show()
+        newStage.get.setMaximized(true)
+      }
     }
-    Settings.primaryStage.foreach(_.getScene.setCursor(Cursor.DEFAULT))
+
+    openWindow.setOnSucceeded(e => Settings.primaryStage.foreach(_.getScene.setCursor(Cursor.DEFAULT)))
+    openWindow.setOnFailed(e => Settings.primaryStage.foreach(_.getScene.setCursor(Cursor.DEFAULT)))
+
+    val thread: Thread = new Thread(openWindow)
+    thread.run()
+
+
   }
 }

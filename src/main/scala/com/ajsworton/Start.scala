@@ -3,6 +3,7 @@ package com.ajsworton
 import javafx.application.Application
 import javafx.stage.Stage
 
+import com.ajsworton.config.Settings
 import com.ajsworton.library.display.JavaFxDisplayBuilder
 
 /**
@@ -18,7 +19,10 @@ class Start extends Application{
       .buildStage(title = "Exam Display", masterWindow = true)
       .getDisplay
 
+
+
     if (newStage.isDefined) {
+        Settings.primaryStage = newStage
         newStage.get.show()
     }
   }

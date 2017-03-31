@@ -2,10 +2,10 @@ package com.ajsworton.library
 
 import javafx.fxml.FXMLLoader
 import java.util.Optional
-import javafx.geometry.Rectangle2D
-import javafx.scene.Parent
+import javafx.scene.{Cursor, Parent}
 import javafx.stage.{Screen, StageStyle}
 
+import com.ajsworton.config.Settings
 import com.ajsworton.library.display.JavaFxDisplayBuilder
 
 /**
@@ -51,6 +51,7 @@ object ScreenDisplayer {
   }
 
   def openNewWindow: Unit = {
+    Settings.primaryStage.foreach(_.getScene.setCursor(Cursor.WAIT))
     val newStage = new JavaFxDisplayBuilder()
       .buildRoot(fxmlView = "DisplayPanel")
       .buildScene()
@@ -61,5 +62,6 @@ object ScreenDisplayer {
       newStage.get.show()
       newStage.get.setMaximized(true)
     }
+    Settings.primaryStage.foreach(_.getScene.setCursor(Cursor.DEFAULT))
   }
 }

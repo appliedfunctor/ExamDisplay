@@ -17,20 +17,5 @@
         <Label alignment="CENTER_RIGHT" textAlignment="RIGHT">Centre Number: </Label>
         <TextField fx:id="centreInput" onKeyReleased="#handleTextChange"
                    GridPane.rowIndex="0" GridPane.columnIndex="1" />
-
-        <Label alignment="CENTER_RIGHT" textAlignment="RIGHT" GridPane.rowIndex="1"  >
-            Other:
-        </Label>
-        <TextField GridPane.rowIndex="1"  GridPane.columnIndex="1" id="inputOther" />
-
-        <Label alignment="CENTER" textAlignment="RIGHT"
-               GridPane.rowIndex="2" GridPane.columnSpan="2">Screens</Label>
-
-        <Label alignment="CENTER" textAlignment="RIGHT"
-               GridPane.rowIndex="3" GridPane.columnSpan="2">Centre</Label>
-
-        <Label id="displayCentre" alignment="CENTER" textAlignment="RIGHT"
-               GridPane.rowIndex="4" GridPane.columnSpan="2" text="${controller.centreNumber}" />
-
     </GridPane>
 </VBox>

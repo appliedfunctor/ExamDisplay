@@ -57,3 +57,11 @@ Label {
 .displayFont {
     -fx-font-size: 4em;
 }
+
+.displayFontLarge {
+    -fx-font-size: 6em;
+}
+
+.displayFontXtraLarge {
+    -fx-font-size: 8em;
+}
